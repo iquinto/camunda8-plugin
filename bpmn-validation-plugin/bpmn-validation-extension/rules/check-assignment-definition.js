@@ -2,7 +2,7 @@ const {
   is
 } = require('bpmnlint-utils');
 
-const deployment = require('../utils');
+const utils = require('../utils');
 
 
 module.exports = function() {
@@ -17,11 +17,14 @@ module.exports = function() {
         //console.log("[bpmn-validation-extension] extension type: " + extensions[extension].$type );
        const ext = extensions[extension];
         if(ext.$type === "zeebe:AssignmentDefinition"){
-          console.log("[bpmn-validation-plugin] ["  + node.id  + "|" +node.name + "] node data: assignee="  + ext.assignee + ", candidateGroups=" + ext.candidateGroups + ", candidateUsers=" + ext.candidateUsers);
-          if(!ext.assignee){
+          utils.log("check-assignment-definition",node, "ASSIGNMENT DEFINITIONS DATA: "+ ext.assignee + "|" + ext.candidateGroups + "|" + ext.candidateUsers)
+          if(!ext.assignee || ext.assignee === ""){
             reporter.report(node.id, 'El camp assignee és obligatori');
             //deployment.disable()
-          } else {
+          } else if (/\d/.test(ext.assignee)) {
+            reporter.report(node.id, 'El camp assignee no pot contenir números');
+          }
+          else {
             //deployment.enable()
           }
         }

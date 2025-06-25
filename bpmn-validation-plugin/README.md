@@ -16,14 +16,6 @@ This plugin extends the Camunda Modeler with custom validation rules for BPMN di
 2. Copy the plugin folder into the `plugins` directory of your Camunda Modeler installation
 3. Restart Camunda Modeler
 
-## Usage
-
-Once installed, the plugin automatically validates your BPMN diagrams. When you create a UserTask:
-
-1. Add an AssignmentDefinition extension to the UserTask
-2. Ensure the `assignee` property is defined
-3. If validation fails, the deployment and start buttons will be disabled
-
 ## Configuration
 
 The validation rules are defined in the `.bpmnlintrc` file. The current configuration enforces the `check-assignment-definition` rule with an 'error' severity level.
