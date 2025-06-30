@@ -4,7 +4,6 @@ module.exports = {
       rules: {
         'check-assignment-definition': 'error',
         'check-registre-template': 'error'
-
       }
     }
   }

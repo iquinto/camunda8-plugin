@@ -27,8 +27,8 @@ export function enable(){
 }
 
 
-export function log(rule, node, message) {
-    console.log("[bpmn-validation-plugin] ["+ rule +"] ["  + node.id  + "|" + node.name + "] "  + message);
+export function log(jsClass, node, message) {
+    console.log("[bpmn-validation-plugin] ["+ jsClass +"] ["  + node.id  + "|" + node.name + "] "  + message);
 }
 
 
